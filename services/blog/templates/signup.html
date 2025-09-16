@@ -1,12 +1,12 @@
 {{define "title"}}サインアップ{{end}}
 
 {{define "body"}}
-<section>
-  <form method="POST" action="/signup">
+<section class="flex flex-col items-center justify-center h-screen">
+  <form class="flex flex-col bg-white p-4 rounded shadow-md" method="POST" action="/signup">
     <input type="hidden" name="csrf_token" value="{{.CsrfToken}}">
-    <p><label>ユーザー名 <input type="text" name="name"></label></p>
-    <p><label>パスワード <input type="text" name="password"></label></p>
-    <p><input type="submit" value="サインアップ"></p>
+    <p class="flex m-2"><label class="font-bold p-2">ユーザー名 <input class="border border-gray-200" type="text" name="name"></label></p>
+    <p class="flex m-2"><label class="font-bold p-2">パスワード <input class="border border-gray-200" type="text" name="password"></label></p>
+    <p class="flex m-2"><input class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded" type="submit" value="サインアップ"></p>
   </form>
 </section>
 {{end}}

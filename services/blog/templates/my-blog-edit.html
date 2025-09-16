@@ -2,23 +2,23 @@
 
 {{define "body"}}
 <section>
-  <header>
-    <h1>{{.Blog.Title}} を編集</h1>
-    <p><a href="/my/blogs/{{.Blog.Path}}">ブログ詳細に戻る</a></p>
+  <header class="flex w-full bg-gray-100 p-4 items-center shadow-md">
+    <h1 class="flex font-bold">{{.Blog.Title}} を編集</h1>
+    <p class="flex ml-auto p-2 text-white bg-gray-500 hover:bg-gray-600 rounded-md"><a href="/my/blogs/{{.Blog.Path}}">ブログ詳細に戻る</a></p>
   </header>
-  <section>
-    <form method="POST" action="/my/blogs/{{.Blog.Path}}/edit">
+  <section class="flex m-4 bg-white p-4 rounded-md">
+    <form class="flex flex-col p-4" method="POST" action="/my/blogs/{{.Blog.Path}}/edit">
       <input type="hidden" name="csrf_token" value="{{.CsrfToken}}">
-      <p><label>パス <span>/blogs/{{.Blog.Path}}</span></p>
-      <p><label>タイトル <input type="text" name="title" value="{{.Blog.Title}}"></label></p>
-      <p><label>説明 <textarea name="description">{{.Blog.Description}}</textarea></label></p>
-      <p><input type="submit" value="更新"></p>
+      <p class="flex m-2"><label>パス <span>/blogs/{{.Blog.Path}}</span></label></p>
+      <p class="flex m-2"><label>タイトル <input class="border border-gray-200 ml-2" type="text" name="title" value="{{.Blog.Title}}"></label></p>
+      <p class="flex m-2"><label>説明 <textarea class="border border-gray-200 ml-2" name="description">{{.Blog.Description}}</textarea></label></p>
+      <p ><input class="flex p-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md" type="submit" value="更新"></p>
     </form>
   </section>
-  <section>
+  <section class="flex m-4 bg-white p-4 rounded-md">
     <form method="POST" action="/my/blogs/{{.Blog.Path}}/delete">
       <input type="hidden" name="csrf_token" value="{{.CsrfToken}}">
-      <p><input type="submit" value="削除"></p>
+      <p class="flex p-2 text-white bg-red-500 hover:bg-red-600 rounded-md"><input type="submit" value="削除"></p>
     </form>
   </section>
 </section>

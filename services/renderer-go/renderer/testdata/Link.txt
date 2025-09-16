@@ -1,0 +1,3 @@
+foo https://google.com/ bar
+//
+<p>foo <a href="https://google.com/">https://google.com/</a> bar</p>

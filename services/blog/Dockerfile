@@ -13,6 +13,9 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 COPY package.json yarn.lock .yarnrc.yml tsconfig.json vite.config.ts ./
 COPY .yarn/ ./.yarn/
 COPY src/ ./src/
+COPY templates/ ./templates/
+COPY images/ ./images/
+COPY assets/ ./assets/
 # publicにファイルを設置した場合コメントを消す
 # COPY public/ ./public/
 RUN yarn build
@@ -32,6 +35,8 @@ FROM golang:1.24-bookworm
 
 WORKDIR /services/blog
 COPY --from=node-builder /services/blog/dist ./dist
+COPY --from=node-builder /services/blog/images ./dist/images
+COPY --from=node-builder /services/blog/assets ./dist/assets
 COPY --from=go-builder /services/blog/bin/server ./bin/server
 
 USER 1000

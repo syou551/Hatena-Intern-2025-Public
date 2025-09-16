@@ -2,26 +2,28 @@
 
 {{define "body"}}
 <section>
-  <header>
-    <h1>{{.Blog.Title}}</h1>
-    <p><a href="/my/blogs">ブログ一覧に戻る</a></p>
-    <p><a href="/blogs/{{.Blog.Path}}" target="_blank" rel="nofollow noopener">Go</a></p>
+  <header class="flex w-full bg-gray-100 p-4 items-center shadow-md">
+    <h1 class="flex font-bold">{{.Blog.Title}}</h1>
+    <p class="flex ml-auto p-2 text-white bg-gray-500 hover:bg-gray-600 rounded-md"><a href="/my/blogs">ブログ一覧に戻る</a></p>
+    <p class="flex ml-2 p-2 text-white bg-gray-500 hover:bg-gray-600 rounded-md"><a href="/blogs/{{.Blog.Path}}" target="_blank" rel="nofollow noopener">ブログページへ</a></p>
   </header>
-  <section>
-    <dl>
-      <dt>パス</dt>
+  <section class="flex flex-col m-4 bg-white p-4 rounded-md">
+    <dl class="m-4">
+      <dt class="font-bold m-2 text-lg">パス</dt>
       <dd>/blogs/{{.Blog.Path}}</dd>
-      <dt>説明</dt>
+      <dt class="font-bold m-2 text-lg">説明</dt>
       <dd>{{.Blog.Description}}</dd>
     </dl>
-    <p><a href="/my/blogs/{{.Blog.Path}}/edit">編集</a></p>
+    <p class="flex p-2 text-white bg-gray-500 hover:bg-gray-600 rounded-md"><a href="/my/blogs/{{.Blog.Path}}/edit">編集</a></p>
   </section>
-  <section>
-    <h1>エントリ一覧</h1>
-    <p><a href="/my/blogs/{{.Blog.Path}}/entries/-/publish">新規投稿</a></p>
-    <table>
-      <thead>
-        <tr>
+  <section class="flex flex-col m-4 bg-white">
+    <div class="flex bg-gray-100 p-4 m-4 items-center shadow-md">
+      <h1 class="font-bold text-lg">エントリ一覧</h1>
+      <p class="ml-auto p-2 text-white bg-blue-500 hover:bg-blue-600 rounded-md"><a href="/my/blogs/{{.Blog.Path}}/entries/-/publish">新規投稿</a></p>
+    </div>
+    <table class="w-full table-auto">
+      <thead class="bg-gray-200 items-center text-left rounded-t-md p-2">
+        <tr class="p-2">
           <td>タイトル</td>
           <td>投稿日時</td>
           <td>編集日時</td>

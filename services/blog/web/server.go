@@ -124,12 +124,25 @@ func setupStaticRoutes(e *echo.Echo) {
 		Root: "dist/assets",
 	}))
 
+	// assetsディレクトリにあるファイルをすべて静的ファイルとして提供
+	var assetFiles = []string{
+		"dist/assets/cracker.mp3",
+	}
+	for _, filename := range assetFiles {
+		assets.File("/"+filename, "/"+filename)
+	}
+
 	images := e.Group("/images")
 	images.Use(middleware.StaticWithConfig(middleware.StaticConfig{
 		Root: "dist/images",
 	}))
-	for _, filename := range []string{"favicon.ico"} {
-		e.File("/"+filename, "dist/"+filename)
+	// imagesディレクトリにあるファイルをすべて静的ファイルとして提供
+	// ここでは、imagesディレクトリ内のすべてのファイル
+	var filenames = []string{
+		"dist/images/cracker.png",
+	}
+	for _, filename := range filenames {
+		e.File("/"+filename, "/"+filename)
 	}
 }
 

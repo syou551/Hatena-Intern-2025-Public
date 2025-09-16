@@ -2,17 +2,17 @@
 
 {{define "body"}}
 <section>
-  <header>
-    <h1>新規ブログ作成</h1>
-    <p><a href="/my/blogs">ブログ一覧に戻る</a></p>
+  <header class="flex w-full bg-gray-100 p-4 items-center shadow-md">
+    <h1 class="font-bold">新規ブログ作成</h1>
+    <p class="ml-auto p-2 text-white bg-gray-500 hover:bg-gray-600 rounded-md"><a href="/my/blogs">ブログ一覧に戻る</a></p>
   </header>
   <section>
-    <form method="POST" action="/my/blogs">
+    <form class="flex flex-col m-4 bg-white p-4 rounded-md" method="POST" action="/my/blogs">
       <input type="hidden" name="csrf_token" value="{{.CsrfToken}}">
-      <p><label>パス <input type="text" name="path"></label></p>
-      <p><label>タイトル <input type="text" name="title"></label></p>
-      <p><label>説明 <textarea name="description"></textarea></label></p>
-      <p><input type="submit" value="作成"></p>
+      <p class="flex m-4"><label class="font-bold">パス <input class="border border-gray-300 p-2 rounded-md" type="text" name="path"></label></p>
+      <p class="flex m-4"><label class="font-bold">タイトル <input class="border border-gray-300 p-2 rounded-md" type="text" name="title"></label></p>
+      <p class="flex m-4"><label class="font-bold">説明 <textarea class="border border-gray-300 p-2 rounded-md" name="description"></textarea></label></p>
+      <p class="flex m-4"><input class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600" type="submit" value="作成"></p>
     </form>
   </section>
 </section>

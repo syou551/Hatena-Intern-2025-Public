@@ -1,0 +1,17 @@
+|>(サンプルの折りたたみ
+これは折りたたまれるコンテンツです。
+- hoge
+    - huga
+)
+//
+<details class="collapse">
+<summary>サンプルの折りたたみ</summary>
+<p>これは折りたたまれるコンテンツです。</p>
+<ul>
+<li>hoge
+<ul>
+<li>huga</li>
+</ul>
+</li>
+</ul>
+</details>
